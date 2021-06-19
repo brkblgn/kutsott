@@ -17,4 +17,4 @@ app.use(Controller);
 
 app.listen(serverPort, function () {
     console.log(`Server Başlatıldı! (${serverPort})`);
-})
+}) 
