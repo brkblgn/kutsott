@@ -1,1 +1,1 @@
-Kutso TT için MQTT - JS Bağlantısı Örnek Kodu
+Kutso TT Proje

@@ -1,20 +1,20 @@
 const express = require("express");
-
-const https = require('https');
-
+const morgan = require('morgan')
 var app = express();
 
-var serverPort = process.argv[2] || 80
+var serverPort = process.argv[2] || 80                   //sunucumuzun portunu belirttik
 
-const Controller = require ('./Controller')
+const Controller = require('./Controllers/Controller')
 
-//app.use(express.static(__dirname + '/')); 
+app.use(express.static(__dirname + '/')); 
 
-app.use(express.json());
+app.use(express.json());                                //json kullanacağız
 
-app.use(Controller);
+app.use(morgan('dev'));
+
+app.use(Controller);                                    //Controller i içeri aktardık. Kalabalık olmaması için istekleri orada yöneteceğiz
 
 
-app.listen(serverPort, function () {
-    console.log(`Server Başlatıldı! (${serverPort})`);
-}) 
+app.listen(serverPort, function () {                     //server başlatılıyor
+    console.log(`Server Başlatıldı! (${serverPort})`); 
+})

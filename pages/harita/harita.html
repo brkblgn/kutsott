@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>İstasyon Haritası</title>
+    <meta charset="utf-8" />
+
+
+    <!-- FAVICON AYARLARI -->
+
+    <link rel="icon" href="./favicon" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon" type="image/x-icon" />
+
+    <!-- FAVICON AYARLARI -->
+    
+
+    <script type='text/javascript'>
+
+
+        var map, infobox;
+        var yazi = "KUTSO";
+        var x = 50;
+        var y = 60;
+
+        function GetMap() {
+            map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'Your Bing Maps Key',
+                center: new Microsoft.Maps.Location(36.40, 30.292163)
+            });
+
+            var center = map.getCenter();
+            var center1 = new Microsoft.Maps.Location(36.362, 30.2980);
+            var center2 = new Microsoft.Maps.Location(36.365352, 30.292163);
+            var center3 = new Microsoft.Maps.Location(x, y);
+
+            console.log(center2);
+            //Create an infobox at the center of the map but don't show it.
+            infobox = new Microsoft.Maps.Infobox(center, {
+                visible: false
+            });
+
+            //Assign the infobox to a map instance.
+            infobox.setMap(map);
+
+            //Create a pushpin at a random location in the map bounds.
+
+
+            var pin = new Microsoft.Maps.Pushpin(center, {
+                title: 'İstasyon',
+                subTitle: 'KTT',
+                text: '0'
+            });
+            var pin1 = new Microsoft.Maps.Pushpin(center1, {
+                title: 'İstasyon-1',
+                subTitle: 'KTT',
+                text: '1'
+            });
+
+            var pin2 = new Microsoft.Maps.Pushpin(center2, {
+                title: 'İstasyon-2',
+                subTitle: 'KTT',
+                text: '2'
+            });
+            var pin3 = new Microsoft.Maps.Pushpin(center3, {
+                title: 'İstasyon-3',
+                subTitle: 'KTT',
+                text: '3'
+            });
+
+
+            //Store some metadata with the pushpin.
+            pin.metadata = {
+                title: 'İstasyon',
+                description: yazi.link("http://kutso.tk")
+
+            };
+            pin1.metadata = {
+                title: 'İstasyon 1',
+                description: yazi.link("http://kutso.tk")
+
+            };
+            pin2.metadata = {
+                title: 'İstasyon 2',
+                description: yazi.link("http://kutso.tk")
+
+            };
+            pin3.metadata = {
+                title: 'İstasyon 3',
+                description: yazi.link("http://www.kutso.tk")
+
+            };
+
+            map.entities.push(pin3);
+            map.entities.push(pin2);
+            map.entities.push(pin1);
+            map.entities.push(pin);
+
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
+            Microsoft.Maps.Events.addHandler(pin1, 'click', pushpinClicked);
+            Microsoft.Maps.Events.addHandler(pin2, 'click', pushpinClicked);
+            Microsoft.Maps.Events.addHandler(pin3, 'click', pushpinClicked);
+
+            //Add pushpin to the map.
+            //map.entities.push(pin,pin2);
+        }
+
+        function pushpinClicked(e) {
+            //Make sure the infobox has metadata to display.
+            if (e.target.metadata) {
+                //Set the infobox options with the metadata of the pushpin.
+                infobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: e.target.metadata.title,
+                    description: e.target.metadata.description,
+                    visible: true
+                });
+            }
+        }
+
+    </script>
+
+    <script type='text/javascript'
+        src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[YOUR_BING_MAPS_KEY]' async defer></script>
+
+
+</head>
+
+<body>
+    <div id="myMap" style="position:relative;width:100vw;height:100vh; z-index: 1;"></div>
+    <div id="Tablo" style="position: absolute; left: 1600px;top: 400px;z-index: 1;">
+        <h3>Konum Değerlerini Giriniz</h3>
+
+        <input type="text" id="x">
+        <input type="text" id="y">
+
+        <button onclick="myFunction()">Click</button>
+
+
+        <script>
+            function myFunction() {
+                var Koordinat = document.getElementById("x").value;
+                var Koordinat2 = document.getElementById("y").value;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

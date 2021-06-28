@@ -27,10 +27,8 @@ client.on('message', function (topic, message) {
 
   //console.log(JSON.parse(message).veri)
 
-
   console.log(`YENİ VERİ (${topic.toString() + " => " + message})`)
 
-  // client.end()
 })
 
 
@@ -39,7 +37,6 @@ module.exports = {
 
     client.publish(token + "/" + topic , JSON.stringify(message));
     client.publish(token + "/lastPushTime" , time.now.call())
-  //  client.end();
 
   }
 }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUTSO Teknoloji Takımı</title>
+
+
+    <!-- FAVICON AYARLARI -->
+
+    <link rel="icon" href="./favicon" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon" type="image/x-icon" />
+
+    <!-- FAVICON AYARLARI -->
+</head>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script src="./kod.js"></script> -->
+
+<link rel="stylesheet" href="./style.css">
+
+<style>
+    li {
+        text-align: center;
+        color: tomato;
+    }
+
+    .button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <!-- Butonlar -->
+
+    <center>
+        <a href="../tablo/" class="button">Online Tablo</a>
+
+        <a href="../harita" class="button">İstasyon Haritası</a>
+    </center>
+    <!-- Butonlar -->
+
+
+
+    <h1 id="baslik" style="color: greenyellow;">Hoşgeldiniz!</h1>
+
+    <h2 id="baslik" style="color: gray;">Kutso Teknoloji Takımı Proje Sayfası</h2>
+
+
+    <br><br><br>
+
+    <!-- TR -->
+
+    <h2 id="baslik" style="font-size: 40px;">----------TR----------</h2>
+
+
+    <h3 id="baslik" style="color: red;">Aktif Olan Mevcut API'ler:</h3>
+
+    <li>
+        "http://kutso.tk/api/time" : Güncel zamanı almak için GET veya POST isteği gönderin.
+    </li>
+    <br>
+    <li>
+        "http://kutso.tk/api/send" : JSON verisini POST edin. 'UserToken', 'topic' ve 'message' değerleri verilmek
+        zorundadır.
+    </li>
+
+
+
+
+    <br><br><br><br>
+
+    <!-- EN -->
+
+    <h2 id="baslik" style="font-size: 40px;">----------EN----------</h2>
+
+
+    <h3 id="baslik" style="color: red;">Currently Active API's:</h3>
+
+    <li>
+        "http://kutso.tk/api/time" : GET or POST request for get current time.
+    </li>
+    <br>
+    <li>
+        "http://kutso.tk/api/send" : POST with JSON data. It must have 'token', 'topic' and 'message' fields'.
+    </li>
+</body>
+
+</html>

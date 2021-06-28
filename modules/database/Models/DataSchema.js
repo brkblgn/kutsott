@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 
 const DataSchema = new Schema({
 
-    token: {
+    _id : mongoose.Schema.Types.ObjectId,
+
+    UserToken: {
         type: String,
         required: true
     },
